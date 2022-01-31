@@ -7,8 +7,8 @@ using System.Threading.Tasks;
 
 namespace DataAccessLayer.Abstract
 {
-    public interface IProductDal:IGenericDal<Product>
+    public interface ICommentDal:IGenericDal<Comments>
     {
-       
+
     }
 }
