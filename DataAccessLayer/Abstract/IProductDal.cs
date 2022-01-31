@@ -9,7 +9,7 @@ namespace DataAccessLayer.Abstract
 {
     public interface IProductDal
     {
-        List<Product> ListAllCategory();
+        List<Product> ListAllProduct();
         void AddProduct(Product product);
         void DeleteProduct(Product product);
         void UpdateProduct(Product product);
