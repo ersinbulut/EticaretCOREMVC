@@ -18,6 +18,11 @@ namespace DataAccessLayer.Repositories
             c.SaveChanges();
         }
 
+        public void Delete(Product t)
+        {
+            throw new NotImplementedException();
+        }
+
         public void DeleteProduct(Product product)
         {
             using var c = new Context();
@@ -31,10 +36,30 @@ namespace DataAccessLayer.Repositories
             return c.Products.Find(id);
         }
 
+        public Product GetByID(int id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public List<Product> GetListAll()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Insert(Product t)
+        {
+            throw new NotImplementedException();
+        }
+
         public List<Product> ListAllProduct()
         {
             using var c = new Context();
             return c.Products.ToList();
+        }
+
+        public void Update(Product t)
+        {
+            throw new NotImplementedException();
         }
 
         public void UpdateProduct(Product product)
