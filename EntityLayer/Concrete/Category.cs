@@ -13,7 +13,10 @@ namespace EntityLayer.Concrete
         public int Id { get; set; }
         public string Name { get; set; }
         public string Description { get; set; }
+        public bool Status { get; set; }
         public virtual List<Product> Products { get; set; }
         public int ParentId { get; set; }
+
+        public virtual List<ProductCategory> ProductCategories { get; set; }
     }
 }

@@ -30,6 +30,8 @@ namespace EntityLayer.Concrete
         //[DisplayName("Son Kullanma Ay")]
         public int ExpMonth { get; set; }
 
+        public bool Status { get; set; }
+
         public int AddressID { get; set; }
         public virtual Addres Addres { get; set; }
     }

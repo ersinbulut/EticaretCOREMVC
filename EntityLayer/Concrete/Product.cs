@@ -21,11 +21,14 @@ namespace EntityLayer.Concrete
         public bool Slider { get; set; }
         public bool IsHome { get; set; }//ürün anasayfada mı?
         public bool IsApproved { get; set; }//onaylı bir ürün mü?
-        public bool IsFeatured { get; set; }//öne çıkan ürünler
-        public int CategoryId { get; set; }//bir ürünün bir kategorisi vardır bir kategorinin birden fazla ürünü olabilir.
+        public bool IsFeatured { get; set; }//öne çıkan bir ürün mü?
+        public bool Status { get; set; }
+        //public int CategoryId { get; set; }//bir ürünün bir kategorisi vardır bir kategorinin birden fazla ürünü olabilir.
         public int ParentId { get; internal set; }
-        public virtual Category Category { get; set; }
+        //public virtual Category Category { get; set; }
 
         public virtual ICollection<Comments> Comments { get; set; }
+
+        public virtual List<ProductCategory> ProductCategories { get; set; }
     }
 }

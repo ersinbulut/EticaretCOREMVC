@@ -16,5 +16,6 @@ namespace EntityLayer.Concrete
         public string UserName { get; set; }
         public System.DateTime AddedDate { get; set; }
         public bool IsApproved { get; set; }
+        public bool Status { get; set; }
     }
 }

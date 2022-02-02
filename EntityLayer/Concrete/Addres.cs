@@ -22,5 +22,6 @@ namespace EntityLayer.Concrete
         public string Mahalle { get; set; }
         //[Required(ErrorMessage = "Lütfen Posta Kodu Giriniz..")]
         public string PostaKodu { get; set; }
+        public bool Status { get; set; }
     }
 }

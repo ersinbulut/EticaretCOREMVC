@@ -30,6 +30,8 @@ namespace EntityLayer.Concrete
         public string CartHasName { get; set; }
         public int ExpYear { get; set; }
         public int ExpMonth { get; set; }
+
+        public bool Status { get; set; }
         //*//*/
         public virtual List<OrderLine> OrderLines { get; set; }
 
@@ -44,17 +46,6 @@ namespace EntityLayer.Concrete
         public virtual Pay Pay { get; set; }
 
         public virtual List<Product> Products { get; set; }
-    }
-    public class OrderLine
-    {
-        public int Id { get; set; }
-        public int OrderId { get; set; }
-        public virtual Order Order { get; set; }
-        public int Quantity { get; set; }
-        public double Price { get; set; }
-        public int ProductId { get; set; }
-        public int Stock { get; set; }
-        public virtual Product Product { get; set; }
     }
 }
 
