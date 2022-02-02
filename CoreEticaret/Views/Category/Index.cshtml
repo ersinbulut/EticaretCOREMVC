@@ -2,9 +2,10 @@
 @model List<Category>
 
 @{
-    Layout = null;
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_UserLayout.cshtml";
 }
-<link href="~/lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
+
 <table class="table table-bordered">
     <tr>
         <th>ID</th>
@@ -22,3 +23,4 @@
         </tr>
     }     
 </table>
+
