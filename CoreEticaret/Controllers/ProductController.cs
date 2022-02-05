@@ -12,17 +12,18 @@ namespace CoreEticaret.Controllers
             var values = pm.GetProductListWithCategory();
             return View(values);
         }
+
         public IActionResult ProductReadAll(int id)
         {
             ViewBag.i = id;
             var values = pm.GetProductByID(id);
             return View(values);
         }
+
         public IActionResult Shop()
         {
             var values = pm.GetProductListWithCategory();
             return View(values);
         }
-
     }
 }
