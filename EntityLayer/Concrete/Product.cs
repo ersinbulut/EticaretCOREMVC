@@ -18,6 +18,9 @@ namespace EntityLayer.Concrete
         public double Price { get; set; }
         public int Stock { get; set; }
         public string Image { get; set; }
+        public string Image1 { get; set; }
+        public string Image2 { get; set; }
+        public string Image3 { get; set; }
         public bool Slider { get; set; }
         public bool IsHome { get; set; }//ürün anasayfada mı?
         public bool IsApproved { get; set; }//onaylı bir ürün mü?
