@@ -12,7 +12,7 @@ namespace DataAccessLayer.Concrete
     {
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer("server=DESKTOP-RKPNL9S\\SQLEXPRESS01;database=CoreEticaretDB;integrated security=true;");
+            optionsBuilder.UseSqlServer("server=DESKTOP-1AT1R42\\SQLEXPRESS;database=DbCoreETicaret;integrated security=true;");
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)

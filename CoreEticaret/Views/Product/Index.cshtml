@@ -1,113 +1,121 @@
 ﻿@using EntityLayer.Concrete
 @model List<Product>
-
 @{
     ViewData["Title"] = "Index";
     Layout = "~/Views/Shared/_UserLayout.cshtml";
 }
 
- <section class="categories">
-            <div class="container-fluid">
+
+<section class="categories">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-6 p-0">
+                <div class="categories__item categories__large__item set-bg"
+                     data-setbg="/CoreTicaret/img/categories/category-1.jpg">
+                    <div class="categories__text">
+                        <h1>Kadın Giyim</h1>
+                        <p>
+                            Sitamet, consectetur adipiscing elit, sed do eiusmod tempor incidid-unt labore
+                            edolore magna aliquapendisse ultrices gravida.
+                        </p>
+                        <a href="#">Şimdi Satın Al!</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
                 <div class="row">
-                    <div class="col-lg-6 p-0">
-                        <div class="categories__item categories__large__item set-bg"
-                         data-setbg="/CoreTicaret/img/categories/category-1.jpg">
-                        <div class="categories__text">
-                            <h1>Kadın modası</h1>
-                            <p>Sitamet, consectetur adipiscing elit, sed do eiusmod tempor incidid-unt labore
-                            edolore magna aliquapendisse ultrices gravida.</p>
-                            <a href="#">Şimdi Satın Al</a>
+                    <div class="col-lg-6 col-md-6 col-sm-6 p-0">
+                        <div class="categories__item set-bg" data-setbg="/CoreTicaret/img/categories/category-2.jpg">
+                            <div class="categories__text">
+                                <h4>Erkek Giyim</h4>
+                                <p>358 items</p>
+                                <a href="#">Şimdi Satın Al!</a>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-lg-6">
-                    <div class="row">
-                        <div class="col-lg-6 col-md-6 col-sm-6 p-0">
-                            <div class="categories__item set-bg"  data-setbg="/CoreTicaret/img/categories/category-2.jpg">
-                                <div class="categories__text">
-                                    <h4>Erkek modası</h4>
-                                    <p>358 öğeler</p>
-                                    <a href="#">Şimdi Satın Al</a>
-                                </div>
+                    <div class="col-lg-6 col-md-6 col-sm-6 p-0">
+                        <div class="categories__item set-bg" data-setbg="/CoreTicaret/img/categories/category-3.jpg">
+                            <div class="categories__text">
+                                <h4>Çocuk Giyim</h4>
+                                <p>273 items</p>
+                                <a href="#">Şimdi Satın Al!</a>
                             </div>
                         </div>
-                        <div class="col-lg-6 col-md-6 col-sm-6 p-0">
-                            <div class="categories__item set-bg"  data-setbg="/CoreTicaret/img/categories/category-3.jpg">
-                                <div class="categories__text">
-                                    <h4>Çocuk modası</h4>
-                                    <p>273 öğeler</p>
-                                    <a href="#">Şimdi Satın Al</a>
-                                </div>
+                    </div>
+                    <div class="col-lg-6 col-md-6 col-sm-6 p-0">
+                        <div class="categories__item set-bg" data-setbg="/CoreTicaret/img/categories/category-4.jpg">
+                            <div class="categories__text">
+                                <h4>Kozmetik</h4>
+                                <p>159 items</p>
+                                <a href="#">Şimdi Satın Al!</a>
                             </div>
                         </div>
-                        <div class="col-lg-6 col-md-6 col-sm-6 p-0">
-                            <div class="categories__item set-bg"  data-setbg="/CoreTicaret/img/categories/category-4.jpg">
-                                <div class="categories__text">
-                                    <h4>Kozmetik</h4>
-                                    <p>159 öğeler</p>
-                                    <a href="#">Şimdi Satın Al</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-6 col-md-6 col-sm-6 p-0">
-                            <div class="categories__item set-bg"  data-setbg="/CoreTicaret/img/categories/category-5.jpg">
-                                <div class="categories__text">
-                                    <h4>Aksesuar</h4>
-                                    <p>792 öğeler</p>
-                                    <a href="#">Şimdi Satın Al</a>
-                                </div>
+                    </div>
+                    <div class="col-lg-6 col-md-6 col-sm-6 p-0">
+                        <div class="categories__item set-bg" data-setbg="/CoreTicaret/img/categories/category-5.jpg">
+                            <div class="categories__text">
+                                <h4>Aksesuar</h4>
+                                <p>792 items</p>
+                                <a href="#">Şimdi Satın Al!</a>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </section>
-<!-- Categories Section End -->
+    </div>
+</section>
 
-<div class="row">
-    <div class="col-lg-4 col-md-4">
-        <div class="section-title">
-            <h4>Yeni Ürünler</h4>
-        </div>
-    </div>
-    <div class="col-lg-8 col-md-8">
-        <ul class="filter__controls">
-            <li class="active" data-filter="*">Hepsi</li>
-            <li data-filter=".women">Kadın</li>
-            <li data-filter=".men">Erkek</li>
-            <li data-filter=".kid">Çocuk</li>
-            <li data-filter=".accessories">Aksesuarlar</li>
-            <li data-filter=".cosmetic">Kozmetik</li>
-        </ul>
-    </div>
-</div>
-<div class="row property__gallery">
-    @foreach (var item in Model)
-    {
-        <div class="col-lg-3 col-md-4 col-sm-6 mix women">
-            <div class="product__item">
-                <div class="product__item__pic set-bg" data-setbg="@item.Image">
-                    <div class="label new">New</div>
-                    <ul class="product__hover">
-                        <li><a href="@item.Image" class="image-popup"><span class="arrow_expand"></span></a></li>
-                        <li><a href="#"><span class="icon_heart_alt"></span></a></li>
-                        <li><a href="/Product/ProductReadAll/@item.Id"><span class="icon_bag_alt"></span></a></li>
-                    </ul>
-                </div>
-                <div class="product__item__text">
-                    <h6><a href="/Product/ProductReadAll/@item.Id">@item.Name</a></h6>
-                    <div class="rating">
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                    </div>
-                    <div class="product__price">₺ @item.Price</div>
+<section class="product spad">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-4 col-md-4">
+                <div class="section-title">
+                    <h4>Yeni Ürünler</h4>
                 </div>
             </div>
+            <div class="col-lg-8 col-md-8">
+                <ul class="filter__controls">
+                    <li class="active" data-filter="*">Tümü</li>
+                    <li data-filter=".women">Kadın</li>
+                    <li data-filter=".men">Erkek</li>
+                    <li data-filter=".kid">Çocuk</li>
+                    <li data-filter=".accessories">Aksesuar</li>
+                    <li data-filter=".cosmetic">Kozmetik</li>
+                </ul>
+            </div>
         </div>
-    }
-</div>
+        <div class="row property__gallery">
+            <div class="col-lg-3 col-md-4 col-sm-6 mix women">
+                @foreach(var item in Model)
+                {
 
+                
+                <div class="product__item">
+                    <div class="product__item__pic set-bg" data-setbg="/CoreTicaret/img/product/product-1.jpg">
+                        <div class="label new">New</div>
+                        <ul class="product__hover">
+                            <li><a href="img/product/product-1.jpg" class="image-popup"><span class="arrow_expand"></span></a></li>
+                            <li><a href="#"><span class="icon_heart_alt"></span></a></li>
+                            <li><a href="#"><span class="icon_bag_alt"></span></a></li>
+                        </ul>
+                    </div>
+                    <div class="product__item__text">
+                        <h6><a href="Product/ProductReadAll/@item.Id">@item.Name</a></h6>
+                        <div class="rating">
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                        </div>
+                        <div class="product__price">₺@item.Price</div>
+                    </div>
+                </div>
+                }
+            </div>
+        
+          
+        </div>
+    </div>
+</section>
