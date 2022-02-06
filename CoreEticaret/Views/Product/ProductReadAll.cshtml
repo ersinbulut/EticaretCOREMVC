@@ -41,6 +41,22 @@
                             <a class="pt" href="#product-4">
                                 <img src="@item.Image3" alt="">
                             </a>
+
+                            @*@{
+                                string images = @item.Image;
+                                string[] imageList = images.Split(',');
+
+                                int i = 1;
+                                foreach(string image in imageList)
+                                {
+                                    <a class="pt" href="#product-i">
+                                        <img src="image" alt="">
+                                    </a>
+
+                                    i++;
+                                }
+                            }*@
+
                         </div>
                         <div class="product__details__slider__content">
                             <div class="product__details__pic__slider owl-carousel">

@@ -1,0 +1,136 @@
+﻿
+@{
+    ViewData["Title"] = "Login";
+    Layout = "~/Views/Shared/_UserLayout.cshtml";
+}
+
+<!doctype html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400&display=swap" rel="stylesheet">
+
+    <link href="~/login-form-06/login-form-06/fonts/icomoon/style.css" rel="stylesheet" />
+
+    <link href="~/login-form-06/login-form-06/css/owl.carousel.min.css" rel="stylesheet" />
+
+    <!-- Bootstrap CSS -->
+    <link href="~/login-form-06/login-form-06/css/bootstrap.min.css" rel="stylesheet" />
+
+    <!-- Style -->
+    <link href="~/login-form-06/login-form-06/css/style.css" rel="stylesheet" />
+
+    <title>Register</title>
+</head>
+<body>
+    <br />
+    <br />
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="container">
+                <div class="row align-items-center justify-content-center">
+                    <div class="col-md-7">
+                        <div class="w-100 text-center mt-4 text">
+                            <h3>Kayıt Ol</h3>
+                            <p>kayıt ol, indirimleri kaçırma!</p>
+                        </div>
+                        <form action="#" method="post">
+                            <div class="form-group first">
+                                <label for="username">Kullanıcı Adı</label>
+                                <input type="text" class="form-control" id="username">
+                            </div>
+                            <div class="form-group last mb-3">
+                                <label for="password">Sifre</label>
+                                <input type="password" class="form-control" id="password">
+                                <span class="caption text-muted">en az 7 karakter olmal</span>
+                            </div>
+
+                            <input type="submit" value="Kayıt Ol" class="btn btn-block btn-primary">
+                            <span class="caption text-muted">Uye Ol'a basarak <a href="" data-toggle="modal" data-target="#Modal1">Üyelik Sözleşmesi</a>’ni kabul ediyorum.</span>
+                            <div class="w-100 text-center mt-4 text">
+                                <p class="mb-0">Bir hesabin mi var?</p>
+                                <a href="/Account/Login/">Giris Yap</a>
+                            </div>
+
+                            <div class="modal" id="Modal1">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h2 class="modal-title">ÜYELİK SÖZLEŞMESİ</h2>
+                                        </div>
+                                        <div class="modal-body">
+                                            <p>1.        TARAFLAR</p>
+                                            <p>İşbu Üyelik Sözleşmesi ("Sözleşme"); www.trendyol.com ve mobil cihaz uygulamalarının sahibi olan ve Maslak Mahallesi Büyükdere Caddesi (Spine Plaza) No: 243 İç Kapı No:19 Sarıyer/İstanbul adresinde bulunan DSM GRUP DANIŞMANLIK İLETİŞİM VE SATIŞ TİC. A.Ş. (“DSM”) ile; www.trendyol.com ve mobil uygulamasına (“Platform”) aşağıdaki şartları kabul ederek üye olan websitesi kullanıcısı veya mobil cihazlara kurulan uygulamalardan üye olan kullanıcı (“Üye”) arasında, Üye'nin DSM'nin sunduğu Hizmetler'den yararlanmasına ilişkin koşulların belirlenmesi için akdedilmiştir. DSM ve Üye işbu Üyelik Sözleşmesi'nde ayrı ayrı “Taraf” birlikte “Taraflar” olarak anılacaklardır.</p>
+                                            <p>2.        TANIMLAR</p>
+                                            <p>Açık Pazar: DSM’nin 6563 sayılı Elektronik Ticaretin Düzenlenmesi Hakkında Kanun uyarınca yalnızca "aracı hizmet sağlayıcı" ve 5651 sayılı İnternet Ortamında Yapılan Yayınların Düzenlenmesi ve Bu Yayınlar Yoluyla İşlenen Suçlarla Mücadele Edilmesi Hakkında Kanun uyarınca "yer sağlayıcı" sıfatıyla Satıcı’lar ile Alıcı’ları Platform üzerinden buluşturarak Satıcı’ların Platform’dan gerçekleştirdikleri ürün ve/veya hizmet satışlarına ticari temsilci olarak aracılık ettiği modeli ifade eder.</p>
+                                            <p>Alıcı: Platform’dan ürün ve/veya hizmet satın alan gerçek ve/veya tüzel kişileri ifade eder.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <br />
+
+                            <div class="d-flex mb-5 align-items-center">
+                                <label class="control control--checkbox mb-0">
+                                    <span class="caption">Kampanyalardan haberdar olabilmek icin kişisel verilerimin islenmesine ve tarafima elektronik ileti gonderilmesini kabul ediyorum. </span>
+                                    <input type="checkbox" />
+                                    <div class="control__indicator"></div>
+                                </label>
+                            </div>
+
+                            <div class="d-flex mb-5 align-items-center">
+                                <label class="control control--checkbox mb-0">
+                                    <span class="caption">Kişisel verilerimin işlenmesine yonelik <a href="" data-toggle="modal" data-target="#Modal2">Aydınlatma Metnini</a> okudum anladım.</span>
+                                    <input type="checkbox" />
+                                    <div class="control__indicator"></div>
+                                </label>
+                            </div>
+
+                            <div class="modal" id="Modal2">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h2 class="modal-title">ÜYELİK SÖZLEŞMESİ</h2>
+                                        </div>
+                                        <div class="modal-body">
+                                            <p>1.        TARAFLAR</p>
+                                            <p>İşbu Üyelik Sözleşmesi ("Sözleşme"); www.trendyol.com ve mobil cihaz uygulamalarının sahibi olan ve Maslak Mahallesi Büyükdere Caddesi (Spine Plaza) No: 243 İç Kapı No:19 Sarıyer/İstanbul adresinde bulunan DSM GRUP DANIŞMANLIK İLETİŞİM VE SATIŞ TİC. A.Ş. (“DSM”) ile; www.trendyol.com ve mobil uygulamasına (“Platform”) aşağıdaki şartları kabul ederek üye olan websitesi kullanıcısı veya mobil cihazlara kurulan uygulamalardan üye olan kullanıcı (“Üye”) arasında, Üye'nin DSM'nin sunduğu Hizmetler'den yararlanmasına ilişkin koşulların belirlenmesi için akdedilmiştir. DSM ve Üye işbu Üyelik Sözleşmesi'nde ayrı ayrı “Taraf” birlikte “Taraflar” olarak anılacaklardır.</p>
+                                            <p>2.        TANIMLAR</p>
+                                            <p>Açık Pazar: DSM’nin 6563 sayılı Elektronik Ticaretin Düzenlenmesi Hakkında Kanun uyarınca yalnızca "aracı hizmet sağlayıcı" ve 5651 sayılı İnternet Ortamında Yapılan Yayınların Düzenlenmesi ve Bu Yayınlar Yoluyla İşlenen Suçlarla Mücadele Edilmesi Hakkında Kanun uyarınca "yer sağlayıcı" sıfatıyla Satıcı’lar ile Alıcı’ları Platform üzerinden buluşturarak Satıcı’ların Platform’dan gerçekleştirdikleri ürün ve/veya hizmet satışlarına ticari temsilci olarak aracılık ettiği modeli ifade eder.</p>
+                                            <p>Alıcı: Platform’dan ürün ve/veya hizmet satın alan gerçek ve/veya tüzel kişileri ifade eder.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <span class="d-block text-center my-4 text-muted">&mdash; or &mdash;</span>
+
+                            <div class="social-login">
+                                <a href="#" class="facebook btn d-flex justify-content-center align-items-center">
+                                    <span class="icon-facebook mr-3"></span> Facebook ile kayıt ol
+                                </a>
+                                <a href="#" class="twitter btn d-flex justify-content-center align-items-center">
+                                    <span class="icon-twitter mr-3"></span> Twitter ile kayıt ol
+                                </a>
+                                <a href="#" class="google btn d-flex justify-content-center align-items-center">
+                                    <span class="icon-google mr-3"></span> Google ile kayıt ol
+                                </a>
+                                <br />
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="~/login-form-06/login-form-06/js/jquery-3.3.1.min.js"></script>
+    <script src="~/login-form-06/login-form-06/js/popper.min.js"></script>
+    <script src="~/login-form-06/login-form-06/js/bootstrap.min.js"></script>
+    <script src="~/login-form-06/login-form-06/js/main.js"></script>
+
+</body>
+</html>

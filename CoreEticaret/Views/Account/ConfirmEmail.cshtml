@@ -1,0 +1,62 @@
+﻿
+@{
+    ViewData["Title"] = "ConfirmEmail";
+    Layout = "~/Views/Shared/_UserLayout.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    <title>EmailConfirm</title>
+</head>
+<body>
+    <div class="container">
+        <h4>EmailCoonfirModel</h4><hr />
+        <div class="row">
+            <div class="col-md-2 offset-5">
+                <img src="~/Content/images/gh.png" class="img-fluid" width="200" />
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-4 offset-4">
+                @if (Model.EmailVerified == true)
+                {
+                    <div class="alert alert-success" role="alert">
+                        <p>Your email has been verified successfully.</p>
+                    </div>
+                }
+                else
+                {
+                    if (Model.EmailSent)
+                    {
+                        <p>Email sent on your registered email id.</p>
+                    }
+                    else
+                    {
+                        <p>We have sent an email on your email id. Click on the link to login.</p>
+                    }
+
+                    <form asp-action="ConfirmEmail">
+                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                        @*<input type="hidden" asp-for="Email" />*@
+
+                        <p>Did not get any email of deleted by mistake?</p>
+                        <div class="form-group">
+                            <input type="submit" value="Resend confirmation email" class="btn btn-primary" />
+                        </div>
+                    </form>
+                }
+                <div>
+                    <p>Back to  <a asp-action="Login" asp-controller="Account">Login</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
