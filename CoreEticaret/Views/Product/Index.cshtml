@@ -86,14 +86,13 @@
             </div>
         </div>
         <div class="row property__gallery">
+            @foreach(var item in Model)
+                { 
             <div class="col-lg-3 col-md-4 col-sm-6 mix women">
-                @foreach(var item in Model)
-                {
-
-                
+                             
                 <div class="product__item">
                     <div class="product__item__pic set-bg" data-setbg="@item.Image">
-                        <div class="label new">New</div>
+                     
                         <ul class="product__hover">
                             <li><a href="@item.Image" class="image-popup"><span class="arrow_expand"></span></a></li>
                             <li><a href="#"><span class="icon_heart_alt"></span></a></li>
@@ -112,9 +111,9 @@
                         <div class="product__price">₺@item.Price</div>
                     </div>
                 </div>
-                }
+              
             </div>
-        
+          }
           
         </div>
     </div>
