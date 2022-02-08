@@ -44,7 +44,12 @@ namespace BusinessLayer.Concrete
             return _categoryDal.GetListAll();
         }
 
-		public void TAdd(Category t)
+        public List<Category> GetList(int id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void TAdd(Category t)
 		{
             _categoryDal.Insert(t);
         }

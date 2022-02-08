@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace DataAccessLayer.Abstract
 {
-    public interface IAddresDal:IGenericDal<Addres>
+    public interface IAddresDal:IGenericDal<Address>
     {
     }
 }

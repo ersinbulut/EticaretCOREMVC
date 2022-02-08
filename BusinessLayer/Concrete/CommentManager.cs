@@ -18,35 +18,35 @@ namespace BusinessLayer.Concrete
 			_commentDal = commentDal;
 		}
 
-		
-
-		
-
-		
-
-		public Comments GetById(int id)
+		public Comment GetById(int id)
 		{
 			return _commentDal.GetByID(id);
 		}
 
-		public List<Comments> GetList()
+		public List<Comment> GetList()
 		{
 			throw new NotImplementedException();
 		}
 
-		public void TAdd(Comments t)
+        public List<Comment> GetList(int id)
+        {
+			return _commentDal.GetListAll(x => x.ProductId == id);
+
+		}
+
+        public void TAdd(Comment t)
 		{
 
 			_commentDal.Insert(t);
 		}
 
-		public void TDelete(Comments t)
+		public void TDelete(Comment t)
 		{
 
 			_commentDal.Delete(t);
 		}
 
-		public void TUpdate(Comments t)
+		public void TUpdate(Comment t)
 		{
 
 			_commentDal.Update(t);

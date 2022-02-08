@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace EntityLayer.Concrete
 {
-    public class Comments
+    public class Comment
     {
         public int Id { get; set; }
         public string Yorum { get; set; }

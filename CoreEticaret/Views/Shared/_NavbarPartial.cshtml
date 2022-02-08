@@ -8,7 +8,7 @@
             <div class="row">
                 <div class="col-xl-3 col-lg-2">
                     <div class="header__logo">
-                        <a href="./index.html">ETİCARET COREMVC</a>
+                        <a href="./index.html">E-TİCARET CORE MVC</a>
                     </div>
                 </div>
                 <div class="col-xl-6 col-lg-7">
@@ -34,8 +34,40 @@
                 <div class="col-lg-3">
                     <div class="header__right">
                         <div class="header__right__auth">
-                            <a href="/Account/Login/">Giriş Yap</a>
-                            <a href="/Account/Register/">Kayıt Ol</a>
+                            @if (User.Identity.IsAuthenticated)
+                            {
+                                <li class="nav-item">
+                                    <a asp-controller="Account" asp-action="Manage" class="nav-link">
+                                        @User.Identity.Name
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a asp-controller="Account" asp-action="Logout" class="nav-link">Cıkış Yap</a>
+                                </li>
+
+                                <ul class="header__right__widget">
+                                    <li><a asp-controller="Account" asp-action="Favorite"><span class="icon_heart_alt"></span>
+                                    <div class="tip">2</div>
+                                    </a></li>
+                                </ul>
+                            }
+                            else
+                            {
+                                <li class="nav-item">
+                                    <a asp-controller="Account" asp-action="Login" class="nav-link">Giriş Yap</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a asp-controller="Account" asp-action="Register" class="nav-link">Kayıt Ol</a>
+                                </li>
+                                <ul class="header__right__widget">
+                                    <li><a asp-controller="Account" asp-action="Login"><span class="icon_heart_alt"></span>
+                                    <div class="tip">2</div>
+                                    </a></li>
+                            <li><a href="#"><span class="icon_bag_alt"></span>
+                                <div class="tip">2</div>
+                            </a></li>
+                        </ul>
+                            }
                         </div>
                         <ul class="header__right__widget">
                             <li><span class="icon_search search-switch"></span></li>

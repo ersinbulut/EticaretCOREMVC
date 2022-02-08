@@ -9,14 +9,16 @@ namespace CoreEticaret.Controllers
 	public class CommentController : Controller
 	{
 		CommentManager commentManager = new CommentManager(new EfCommentRepository());
+
 		[HttpGet]
 		public PartialViewResult CommentAddPartial(int id)
 		{
 			var product = commentManager.GetById(id);
 			return PartialView(product);
 		}
+		
 		[HttpPost]
-		public PartialViewResult CommentAddPartial(Comments comment)
+		public PartialViewResult CommentAddPartial(Comment comment)
 		{
 			comment.Name = "Batuhan";
 			comment.AddedDate =DateTime.Parse(DateTime.Now.ToShortDateString());
@@ -25,6 +27,13 @@ namespace CoreEticaret.Controllers
 			comment.ProductId = 3;
 			commentManager.TAdd(comment);
 			return PartialView();
+		}
+
+		public PartialViewResult CommentListByProduct(int id)
+		{
+			var values = commentManager.GetList(id);
+
+			return PartialView(values);
 		}
 	}
 }

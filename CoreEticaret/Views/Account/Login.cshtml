@@ -1,4 +1,5 @@
-﻿
+﻿@model LoginModel
+
 @{
     ViewData["Title"] = "Login";
     Layout = "~/Views/Shared/_UserLayout.cshtml";
@@ -37,44 +38,52 @@
                             <h3>Giriş Yap</h3>
                             <p>giriş yap, indirimleri kaçırma!</p>
                         </div>
-                        <form action="#" method="post">
+                        @if (ViewBag.ErrorMessage != null)
+                        {
+                            <div class="text-danger">@ViewBag.ErrorMessage</div>
+                        }
+                        <form asp-controller="Account" asp-action="Login" method="post">
+                            <div asp-validation-summary="All" class="text-danger"></div>
+                            <input type="hidden" name="ReturnURL" value="@Model.ReturnURL" />
                             <div class="form-group first">
                                 <label for="username">Kullanıcı Adı</label>
-                                <input type="text" class="form-control" id="username">
+                                <input asp-for="Email" value="@Model.Email" class="form-control" id="username" />
+                                <span asp-validation-for="Email" class="text-danger"></span>
                             </div>
                             <div class="form-group last mb-3">
                                 <label for="password">Sifre</label>
-                                <input type="password" class="form-control" id="password">
+                                <input asp-for="Password" value="@Model.Password" class="form-control" id="password" />
+                                <span asp-validation-for="Password" class="text-danger"></span>
                             </div>
 
-                             <div class="d-flex mb-5 align-items-center">
+                            <div class="d-flex mb-5 align-items-center">
                                 <label class="control control--checkbox mb-0">
                                     <span class="caption">Beni Hatırla</span>
                                     <input type="checkbox" checked="checked" />
                                     <div class="control__indicator"></div>
                                 </label>
                                 <span class="ml-auto"><a href="/Account/ForgotPassword/" class="forgot-pass">Sifremi Unuttum</a></span>
-                             </div>
+                            </div>
 
-                             <input type="submit" value="Log In" class="btn btn-block btn-primary">
-                             <div class="w-100 text-center mt-4 text">
-                                 <p class="mb-0">Bir hesabin yok mu?</p>
-                                 <a href="/Account/Register/">Kayit Ol</a>
-                             </div>
+                            <input type="submit" value="Log In" class="btn btn-block btn-primary">
+                            <div class="w-100 text-center mt-4 text">
+                                <p class="mb-0">Bir hesabin yok mu?</p>
+                                <a href="/Account/Register/">Kayit Ol</a>
+                            </div>
 
-                             <span class="d-block text-center my-4 text-muted">&mdash; or &mdash;</span>
+                            <span class="d-block text-center my-4 text-muted">&mdash; or &mdash;</span>
 
-                             <div class="social-login">
-                                 <a href="#" class="facebook btn d-flex justify-content-center align-items-center">
-                                     <span class="icon-facebook mr-3"></span>Facebook ile giriş yap
-                                 </a>
-                                 <a href="#" class="twitter btn d-flex justify-content-center align-items-center">
-                                     <span class="icon-twitter mr-3"></span>Twitter ile giriş yap
-                                 </a>
-                                 <a href="#" class="google btn d-flex justify-content-center align-items-center">
-                                     <span class="icon-google mr-3"></span>Google ile giriş yap
-                                 </a>
-                             </div>
+                            <div class="social-login">
+                                <a href="#" class="facebook btn d-flex justify-content-center align-items-center">
+                                    <span class="icon-facebook mr-3"></span>Facebook ile giriş yap
+                                </a>
+                                <a href="#" class="twitter btn d-flex justify-content-center align-items-center">
+                                    <span class="icon-twitter mr-3"></span>Twitter ile giriş yap
+                                </a>
+                                <a href="#" class="google btn d-flex justify-content-center align-items-center">
+                                    <span class="icon-google mr-3"></span>Google ile giriş yap
+                                </a>
+                            </div>
                         </form>
                     </div>
                 </div>
@@ -86,5 +95,7 @@
     <script src="~/login-form-06/login-form-06/js/popper.min.js"></script>
     <script src="~/login-form-06/login-form-06/js/bootstrap.min.js"></script>
     <script src="~/login-form-06/login-form-06/js/main.js"></script>
+    <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
 </body>
 </html>

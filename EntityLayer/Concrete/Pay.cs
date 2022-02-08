@@ -33,6 +33,6 @@ namespace EntityLayer.Concrete
         public bool Status { get; set; }
 
         public int AddressID { get; set; }
-        public virtual Addres Addres { get; set; }
+        public virtual Address Addres { get; set; }
     }
 }

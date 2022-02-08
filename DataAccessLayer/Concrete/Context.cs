@@ -12,13 +12,16 @@ namespace DataAccessLayer.Concrete
     {
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer("server=DESKTOP-1AT1R42\\SQLEXPRESS;database=Db_CoreETicaret;integrated security=true;");
+            optionsBuilder.UseSqlServer("server=MSI;database=CoreETicaretDB;integrated security=true;");
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<ProductCategory>()
                     .HasKey(c => new { c.CategoryId, c.ProductId });
+
+            ////modelBuilder.Entity<Category>()
+                //.HasKey(c => new { c.Id, c.ChildrenCategory });
         }
 
         public DbSet<Product> Products { get; set; }
@@ -26,13 +29,17 @@ namespace DataAccessLayer.Concrete
         public DbSet<Order> Orders { get; set; }
         public DbSet<OrderLine> OrderLines { get; set; }
         /**/
-        public DbSet<Addres> Addres { get; set; }
+        public DbSet<Address> Addresses { get; set; }
 
         public DbSet<Pay> Pays { get; set; }
         //public DbSet<Users> Users { get; set; }
-        public DbSet<Comments> Comments { get; set; }
+        public DbSet<Comment> Comments { get; set; }
 
         //public DbSet<Messages> Messages { get; set; }
         //public DbSet<MessageReplies> MessageReplies { get; set; }
+
+        //public DbSet<Listing> Listings { get; set; }
+        //public DbSet<SubCategory1> SubCategories1 { get; set; }
+        //public DbSet<SubCategory2> SubCategories2 { get; set; }
     }
 }

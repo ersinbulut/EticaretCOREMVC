@@ -39,7 +39,7 @@ namespace EntityLayer.Concrete
         //public Users User { get; set; }
         public int UserAddressID { get; set; }
         [ForeignKey("UserAddressID")]
-        public virtual Addres Addres { get; set; }
+        public virtual Address Addres { get; set; }
 
         public int PayID { get; set; }
         [ForeignKey("PayID")]

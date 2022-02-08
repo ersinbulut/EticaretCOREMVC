@@ -15,14 +15,15 @@
     <title>EmailConfirm</title>
 </head>
 <body>
+    <div class="alert alert-warning">
+        @if(TempData["message"] != null)
+        {
+            @TempData["message"]
+        }
+    </div>
     <div class="container">
         <h4>EmailCoonfirModel</h4><hr />
-        <div class="row">
-            <div class="col-md-2 offset-5">
-                <img src="~/Content/images/gh.png" class="img-fluid" width="200" />
-            </div>
-        </div>
-
+        
         <div class="row">
             <div class="col-md-4 offset-4">
                 @if (Model.EmailVerified == true)

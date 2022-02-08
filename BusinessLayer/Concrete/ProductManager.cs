@@ -28,6 +28,11 @@ namespace BusinessLayer.Concrete
             return _productDal.GetListAll();
         }
 
+        public List<Product> GetList(int id)
+        {
+            throw new NotImplementedException();
+        }
+
         public List<Product> GetProductByID(int id)
         {
             return _productDal.GetListAll(x => x.Id == id);
@@ -38,7 +43,6 @@ namespace BusinessLayer.Concrete
             return _productDal.GetListWithCategory();
         }
 
-       
 		public void TAdd(Product t)
 		{
             _productDal.Insert(t);

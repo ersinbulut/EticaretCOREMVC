@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace EntityLayer.Concrete
 {
-    public class Addres
+    public class Address
     {
         public int Id { get; set; }
         public string UserName { get; set; }
