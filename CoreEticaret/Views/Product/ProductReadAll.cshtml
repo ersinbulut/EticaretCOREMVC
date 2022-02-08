@@ -4,7 +4,6 @@
     Layout = "~/Views/Shared/_UserLayout.cshtml";
 }
 
-
 <!-- Breadcrumb Begin -->
 <div class="breadcrumb-option">
     <div class="container">
@@ -34,21 +33,37 @@
                                 <img src="@item.Image" alt="">
                             </a>
                             <a class="pt" href="#product-2">
-                                <img src="@item.Image" alt="">
+                                <img src="@item.Image1" alt="">
                             </a>
                             <a class="pt" href="#product-3">
-                                <img src="@item.Image" alt="">
+                                <img src="@item.Image2" alt="">
                             </a>
                             <a class="pt" href="#product-4">
-                                <img src="@item.Image" alt="">
+                                <img src="@item.Image3" alt="">
                             </a>
+
+                            @*@{
+                                string images = @item.Image;
+                                string[] imageList = images.Split(',');
+
+                                int i = 1;
+                                foreach(string image in imageList)
+                                {
+                                    <a class="pt" href="#product-i">
+                                        <img src="image" alt="">
+                                    </a>
+
+                                    i++;
+                                }
+                            }*@
+
                         </div>
                         <div class="product__details__slider__content">
                             <div class="product__details__pic__slider owl-carousel">
                                 <img data-hash="product-1" class="product__big__img" src="@item.Image" alt="">
-                                <img data-hash="product-2" class="product__big__img" src="@item.Image" alt="">
-                                <img data-hash="product-3" class="product__big__img" src="@item.Image" alt="">
-                                <img data-hash="product-4" class="product__big__img" src="@item.Image" alt="">
+                                <img data-hash="product-2" class="product__big__img" src="@item.Image1" alt="">
+                                <img data-hash="product-3" class="product__big__img" src="@item.Image2" alt="">
+                                <img data-hash="product-4" class="product__big__img" src="@item.Image3" alt="">
                             </div>
                         </div>
                     </div>
@@ -209,6 +224,7 @@
                     </div>
                 </div>
             </div>
+           @await Html.PartialAsync("~/Views/Comment/CommentAddPartial.cshtml");
             <div class="row">
                 <div class="col-lg-12 text-center">
                     <div class="related__title">

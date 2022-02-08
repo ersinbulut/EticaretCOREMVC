@@ -38,19 +38,20 @@ namespace BusinessLayer.Concrete
             return _productDal.GetListWithCategory();
         }
 
-        public void ProductAdd(Product product)
-        {
-            _productDal.Insert(product);
+       
+		public void TAdd(Product t)
+		{
+            _productDal.Insert(t);
         }
 
-        public void ProductDelete(Product product)
-        {
-            _productDal.Delete(product);
+		public void TDelete(Product t)
+		{
+            _productDal.Delete(t);
         }
 
-        public void ProductUpdate(Product product)
-        {
-            _productDal.Update(product);
+		public void TUpdate(Product t)
+		{
+            _productDal.Update(t);
         }
-    }
+	}
 }
