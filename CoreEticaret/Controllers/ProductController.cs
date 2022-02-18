@@ -1,8 +1,6 @@
 ﻿using BusinessLayer.Concrete;
-using DataAccessLayer.Concrete;
 using DataAccessLayer.EntityFramework;
 using Microsoft.AspNetCore.Mvc;
-using System.Linq;
 
 namespace CoreEticaret.Controllers
 {
@@ -27,23 +25,6 @@ namespace CoreEticaret.Controllers
         {
             var values = pm.GetProductListWithCategory();
             return View(values);
-        }
-
-        public ActionResult ProductList(int categoryId, int subCategoryId)
-        {
-            var query = db.Products.AsQueryable();
-
-            if (categoryId > 0)
-                query = query.Where(i => i.CategoryId == subCategoryId);
-            else
-                query = query.Where(i => i.Category.ParentId == subCategoryId || i.CategoryId == subCategoryId);
-
-            return View(query.ToList());
-        }
-
-        public PartialViewResult ProductCategory()
-        {
-            return PartialView();
         }
     }
 }
