@@ -1,0 +1,172 @@
+﻿@model CoreEticaret.Models.ContactModel
+
+@{
+    ViewData["Title"] = "Contact";
+    Layout = "~/Views/Shared/_UserLayout.cshtml";
+}
+
+<!DOCTYPE html>
+<html lang="zxx">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Ashion Template">
+    <meta name="keywords" content="Ashion, unica, creative, html">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Ashion | Template</title>
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Cookie&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap"
+          rel="stylesheet">
+
+    <!-- Css Styles -->
+    <link rel="stylesheet" href="~/CoreTicaret/css/bootstrap.min.css" type="text/css">
+    <link rel="stylesheet" href="~/CoreTicaret/css/font-awesome.min.css" type="text/css">
+    <link rel="stylesheet" href="~/CoreTicaret/css/elegant-icons.css" type="text/css">
+    <link rel="stylesheet" href="~/CoreTicaret/css/jquery-ui.min.css" type="text/css">
+    <link rel="stylesheet" href="~/CoreTicaret/css/magnific-popup.css" type="text/css">
+    <link rel="stylesheet" href="~/CoreTicaret/css/owl.carousel.min.css" type="text/css">
+    <link rel="stylesheet" href="~/CoreTicaret/css/slicknav.min.css" type="text/css">
+    <link rel="stylesheet" href="~/CoreTicaret/css/style.css" type="text/css">
+
+    <script>
+        $(document).ready(function () {
+            $("#refreshBtn").click(function () {
+                window.location.reload();
+            });
+        });
+    </script>
+</head>
+<body>
+    <!-- Breadcrumb Begin -->
+    <div class="breadcrumb-option">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="breadcrumb__links">
+                        <a href="./index.html"><i class="fa fa-home"></i> Home</a>
+                        <span>Contact</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Breadcrumb End -->
+    <!-- Contact Section Begin -->
+    <section class="contact spad">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 col-md-6">
+                    <div class="contact__content">
+                        <div class="contact__address">
+                            <h5>Contact info</h5>
+                            <ul>
+                                <li>
+                                    <h6><i class="fa fa-map-marker"></i> Address</h6>
+                                    <p>160 Pennsylvania Ave NW, Washington, Castle, PA 16101-5161</p>
+                                </li>
+                                <li>
+                                    <h6><i class="fa fa-phone"></i> Phone</h6>
+                                    <p><span>125-711-811</span><span>125-668-886</span></p>
+                                </li>
+                                <li>
+                                    <h6><i class="fa fa-headphones"></i> Support</h6>
+                                    <p>Support.photography@gmail.com</p>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="contact__form">
+                            <h5>SEND MESSAGE</h5>
+                            @if (ViewBag.IsSuccess == true)
+                            {
+                                <div class="alert alert-success title text-center w-100 mt-5" role="alert">
+                                    Thank you for email. <br /><br />
+                                    GH Global Team received your email.<br />
+                                    GH Global Team will be back to you as soon as possible. <br /> <br />
+                                    Click on the following link to website. <br /><br />
+
+                                    <a asp-action="Index" asp-controller="Home">www.ghglobal.com</a>
+                                </div>
+                            }
+                            <form asp-action="Contact">
+                                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                                <div class="form-group">
+                                    <input asp-for="@Model.FullName" placeholder="Full Name" class="form-control" />
+                                    <span asp-validation-for="@Model.FullName" class="text-danger"></span>
+                                </div>
+                                <div class="form-group">
+                                    <input asp-for="@Model.Email" placeholder="Email" class="form-control" />
+                                    <span asp-validation-for="@Model.Email" class="text-danger"></span>
+                                </div>
+                                <div class="form-group">
+                                    <input asp-for="@Model.Phone" placeholder="Phone" class="form-control" />
+                                    <span asp-validation-for="@Model.Phone" class="text-danger"></span>
+                                </div>
+                                <div class="form-group">
+                                    <input asp-for="@Model.Subject" placeholder="Subject" class="form-control" />
+                                    <span asp-validation-for="@Model.Subject" class="text-danger"></span>
+                                </div>
+                                <div class="form-group">
+                                    <textarea asp-for="@Model.Message" placeholder="Message" class="form-control"></textarea>
+                                    <span asp-validation-for="@Model.Message" class="text-danger"></span>
+                                </div>
+                                <div class="form-group">
+                                    <dnt-captcha asp-captcha-generator-max="999999"
+                                                 asp-captcha-generator-min="111111" 
+                                                 asp-captcha-generator-language="English" 
+                                                 asp-captcha-generator-display-mode="ShowDigits" 
+                                                 asp-use-relative-urls="true" 
+                                                 asp-placeholder="Enter Security Code" 
+                                                 asp-validation-error-message="Please enter the security code." asp-font-name="Tahoma" asp-font-size="20" asp-fore-color="#333333" asp-back-color="#ccc" asp-text-box-class="text-box form-control" asp-text-box-template="<span class='input-group-prepend'<span class='form-group-text'</span></span>{0}" asp-validation-message-class="text-danger" />
+                                    <i class="fas fa-redo" id="refreshBtn" aria-hidden="true"></i>
+                                </div>
+                                <div class="form-group">
+                                    <button type="submit" class="site-btn">Send Message</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-6">
+                    <div class="contact__map">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d48158.305462977965!2d-74.13283844036356!3d41.02757295168286!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c2e440473470d7%3A0xcaf503ca2ee57958!2sSaddle%20River%2C%20NJ%2007458%2C%20USA!5e0!3m2!1sen!2sbd!4v1575917275626!5m2!1sen!2sbd"
+                                height="950" style="border:0" allowfullscreen="">
+                        </iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Contact Section End -->
+    <!-- Search Begin -->
+    <div class="search-model">
+        <div class="h-100 d-flex align-items-center justify-content-center">
+            <div class="search-close-switch">+</div>
+            <form class="search-model-form">
+                <input type="text" id="search-input" placeholder="Search here.....">
+            </form>
+        </div>
+    </div>
+    <!-- Search End -->
+    <!-- Js Plugins -->
+    <script src="~/CoreTicaret/js/jquery-3.3.1.min.js"></script>
+    <script src="~/CoreTicaret/js/bootstrap.min.js"></script>
+    <script src="~/CoreTicaret/js/jquery.magnific-popup.min.js"></script>
+    <script src="~/CoreTicaret/js/jquery-ui.min.js"></script>
+    <script src="~/CoreTicaret/js/mixitup.min.js"></script>
+    <script src="~/CoreTicaret/js/jquery.countdown.min.js"></script>
+    <script src="~/CoreTicaret/js/jquery.slicknav.js"></script>
+    <script src="~/CoreTicaret/js/owl.carousel.min.js"></script>
+    <script src="~/CoreTicaret/js/jquery.nicescroll.min.js"></script>
+    <script src="~/CoreTicaret/js/main.js"></script>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+    <script src="~/js/jquery.unobtrusive-ajax.js"></script>
+</body>
+</html>

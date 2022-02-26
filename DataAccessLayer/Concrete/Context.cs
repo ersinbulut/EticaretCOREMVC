@@ -18,12 +18,15 @@ namespace DataAccessLayer.Concrete
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<ProductCategory>()
-                    .HasKey(c => new { c.CategoryId, c.ProductId });
+                .HasKey(c => new { c.CategoryId, c.ProductId });
 
             ////modelBuilder.Entity<Category>()
-                //.HasKey(c => new { c.Id, c.ChildrenCategory });
+            //.HasKey(c => new { c.Id, c.ChildrenCategory });
         }
 
+        public DbSet<Blog> Blogs { get; set; }
+        public DbSet<BlogCategory> BlogCategories { get; set; }
+        public DbSet<BlogComment> BlogComments { get; set; }
         public DbSet<Product> Products { get; set; }
         public DbSet<Category> Categories { get; set; }
         public DbSet<Order> Orders { get; set; }
@@ -33,11 +36,14 @@ namespace DataAccessLayer.Concrete
 
         public DbSet<Pay> Pays { get; set; }
         //public DbSet<Users> Users { get; set; }
+        public DbSet<Contact> Contacts { get; set; }
         public DbSet<Comment> Comments { get; set; }
+        public DbSet<Newsletter> Newsletters { get; set; }
 
         //public DbSet<Messages> Messages { get; set; }
         //public DbSet<MessageReplies> MessageReplies { get; set; }
 
+        public DbSet<Writer> Writers { get; set; }
         //public DbSet<Listing> Listings { get; set; }
         //public DbSet<SubCategory1> SubCategories1 { get; set; }
         //public DbSet<SubCategory2> SubCategories2 { get; set; }

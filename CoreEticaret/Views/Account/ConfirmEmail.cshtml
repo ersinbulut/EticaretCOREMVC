@@ -1,10 +1,9 @@
-﻿
+﻿@model CoreEticaret.Models.EmailConfirmModel
+
 @{
     ViewData["Title"] = "ConfirmEmail";
     Layout = "~/Views/Shared/_UserLayout.cshtml";
 }
-
-<!DOCTYPE html>
 
 <html>
 <head>
@@ -15,12 +14,6 @@
     <title>EmailConfirm</title>
 </head>
 <body>
-    <div class="alert alert-warning">
-        @if(TempData["message"] != null)
-        {
-            @TempData["message"]
-        }
-    </div>
     <div class="container">
         <h4>EmailCoonfirModel</h4><hr />
         
@@ -45,7 +38,7 @@
 
                     <form asp-action="ConfirmEmail">
                         <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-                        @*<input type="hidden" asp-for="Email" />*@
+                        <input type="hidden" asp-for="Email" />
 
                         <p>Did not get any email of deleted by mistake?</p>
                         <div class="form-group">

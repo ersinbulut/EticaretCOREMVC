@@ -9,10 +9,6 @@ namespace BusinessLayer.Abstract
 {
     public interface ICategoryService:IGenericService<Category>
     {
-
-
-
-
         /* GENERİC HALE GETİRİLDİ */
         //void CategoryAdd(Category category);
         //void CategoryDelete(Category category);

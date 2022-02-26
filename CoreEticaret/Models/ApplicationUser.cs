@@ -4,10 +4,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace CoreEticaret.Identity
+namespace CoreEticaret.Models
 {
     public class ApplicationUser : IdentityUser
     {
-        public string FullName { get; set; }
+        public string FirstName { get; internal set; }
+        public string LastName { get; internal set; }
     }
 }

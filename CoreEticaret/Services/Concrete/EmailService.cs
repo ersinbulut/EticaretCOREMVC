@@ -1,5 +1,6 @@
-﻿using Microsoft.Extensions.Options;
-using Microsoft.AspNetCore.Identity.UI.Services;
+﻿using CoreEticaret.Models;
+using CoreEticaret.Services.Abstract;
+using Microsoft.Extensions.Options;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -8,37 +9,22 @@ using System.Net;
 using System.Net.Mail;
 using System.Text;
 using System.Threading.Tasks;
-using CoreEticaret.Models;
 
-namespace CoreEticaret.EmailServices
+namespace CoreEticaret.Services.Concrete
 {
-    public class EmailSender : IEmailSender
+    public class EmailService : IEmailService
     {
-        private const string SendGridKey = "";
-
-        //public Task SendEmailAsync(string email, string subject, string htmlMessage)
-        //{
-        //    return Execute(SendGridKey, subject, htmlMessage, email);
-        //}
-
-        //private Task Execute(string sendGridKey, string subject, string htmlMessage, string email)
-        //{
-        //    var client = new SendGritClient(sendGridKey);
-
-        //    var msg = new SendGridMessage()
-        //    {
-        //        From = new EmailAddress("info@shopapp.com", "Shop App"),
-        //        subject = subject,
-        //        PlainTextContent = htmlMessage
-        //    };
-
-        //    msg.AddTo(new EmailAddress(email));
-
-        //    return client.SendEmailAsync(msg);
-        //}
-
         private const string templatePath = @"EmailTemplate/{0}.html";
         private readonly SMTPConfigModel _smtpConfig;
+
+        public async Task SendTestEmail(UserEmailOptions userEmailOptions)
+        {
+            userEmailOptions.Subject = UpdatePlaceHolders("Hello {{UserName}}, This is test email subject from GH Global Web App", userEmailOptions.PlaceHolders);
+
+            userEmailOptions.Body = UpdatePlaceHolders(GetEmailBody("TestEmail"), userEmailOptions.PlaceHolders);
+
+            await SendEmail(userEmailOptions);
+        }
 
         public async Task SendEmailForEmailConfirmation(UserEmailOptions userEmailOptions)
         {
@@ -58,7 +44,16 @@ namespace CoreEticaret.EmailServices
             await SendEmail(userEmailOptions);
         }
 
-        public EmailSender(IOptions<SMTPConfigModel> smtpConfig)
+        public async Task SendEmailResetPassword(UserEmailOptions userEmailOptions)
+        {
+            userEmailOptions.Subject = UpdatePlaceHolders("Hello {{UserName}}, confirm email for reset your password.", userEmailOptions.PlaceHolders);
+
+            userEmailOptions.Body = UpdatePlaceHolders(GetEmailBody("ResetPassword"), userEmailOptions.PlaceHolders);
+
+            await SendEmail(userEmailOptions);
+        }
+
+        public EmailService(IOptions<SMTPConfigModel> smtpConfig)
         {
             _smtpConfig = smtpConfig.Value;
         }
@@ -97,6 +92,7 @@ namespace CoreEticaret.EmailServices
         private string GetEmailBody(string templateName)
         {
             var body = File.ReadAllText(string.Format(templatePath, templateName));
+
             return body;
         }
 
@@ -114,11 +110,6 @@ namespace CoreEticaret.EmailServices
             }
 
             return text;
-        }
-
-        public Task SendEmailAsync(string email, string subject, string htmlMessage)
-        {
-            throw new NotImplementedException();
         }
     }
 }

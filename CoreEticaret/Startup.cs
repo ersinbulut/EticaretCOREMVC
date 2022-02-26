@@ -1,6 +1,12 @@
-using CoreEticaret.EmailServices;
+using CoreEticaret.Helpers;
 using CoreEticaret.Identity;
 using CoreEticaret.Models;
+using CoreEticaret.Repositories.Abstract;
+using CoreEticaret.Repositories.Concrete;
+using CoreEticaret.Services.Abstract;
+using CoreEticaret.Services.Concrete;
+using DataAccessLayer.Concrete;
+using DNTCaptcha.Core;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
@@ -20,9 +26,11 @@ namespace CoreEticaret
 {
     public class Startup
     {
+        private readonly IConfiguration _configuration;
+
         public Startup(IConfiguration configuration)
         {
-            Configuration = configuration;
+            _configuration = configuration;
         }
 
         public IConfiguration Configuration { get; }
@@ -30,7 +38,9 @@ namespace CoreEticaret
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddDbContext<ApplicationIdentityDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("IdentityConnection")));
+            //services.AddDbContext<Context>(options => options.UseSqlServer(_configuration.GetConnectionString("IdentityConnection")));
+
+            services.AddDbContext<ApplicationIdentityDbContext>(options => options.UseSqlServer(_configuration.GetConnectionString("IdentityConnection")));
 
             services.AddIdentity<ApplicationUser, IdentityRole>()
                 .AddEntityFrameworkStores<ApplicationIdentityDbContext>()
@@ -41,9 +51,10 @@ namespace CoreEticaret
                 // password
                 options.Password.RequireDigit = true;
                 options.Password.RequireLowercase = true;
-                options.Password.RequiredLength = 6;
+                options.Password.RequiredLength = 7;
                 options.Password.RequireNonAlphanumeric = true;
                 options.Password.RequireUppercase = true;
+                options.Password.RequiredUniqueChars = 1;
 
                 options.Lockout.MaxFailedAccessAttempts = 5;
                 options.Lockout.DefaultLockoutTimeSpan = TimeSpan.FromMinutes(5);
@@ -71,11 +82,16 @@ namespace CoreEticaret
                 };
             });
 
-            services.AddTransient<IEmailSender, EmailSender>();
+            services.AddScoped<IUserService, UserService>();
+            services.AddScoped<IEmailService, EmailService>();
+            services.AddScoped<IAccountRepository, AccountRepository>();
+            services.AddScoped<IUserClaimsPrincipalFactory<ApplicationUser>, ApplicationUserClaimsPrincipalFactory>();
 
-            services.Configure<SMTPConfigModel>(Configuration.GetSection("SMTPConfig"));
+            services.Configure<SMTPConfigModel>(_configuration.GetSection("SMTPConfig"));
 
             services.AddControllersWithViews();
+
+            services.AddDNTCaptcha(options => options.UseCookieStorageProvider().ShowThousandsSeparators(false).WithEncryptionKey("123456"));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

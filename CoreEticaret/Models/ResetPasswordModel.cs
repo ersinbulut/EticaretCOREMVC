@@ -9,12 +9,13 @@ namespace CoreEticaret.Models
     public class ResetPasswordModel
     {
         [Required]
+        [EmailAddress]
         public string UserId { get; set; }
 
         [Required]
         public string Token { get; set; }
 
-        [Required, DataType(DataType.Password)]
+        [Required(ErrorMessage = "Please enter your password"), DataType(DataType.Password)]
         public string NewPassword { get; set; }
 
         [Required, DataType(DataType.Password)]

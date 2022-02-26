@@ -1,0 +1,41 @@
+﻿@inject Microsoft.AspNetCore.Identity.SignInManager<ApplicationUser> _signInManager
+
+@if (_signInManager.IsSignedIn(User))
+{
+    <li class="nav-item">
+        <a asp-controller="Account" asp-action="Manage" class="nav-link">
+            Hello @(User.FindFirst("UserFirstName").Value + " " + User.FindFirst("UserLastName").Value )
+        </a>
+    </li>
+    <li class="nav-item">
+        <a asp-controller="Account" asp-action="Logout" class="nav-link">Cıkış Yap</a>
+    </li>
+    <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle text-dark" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Hello @(User.FindFirst("UserFirstName").Value + " " + User.FindFirst("UserLastName").Value )
+        </a>
+        <a class="nav-link dropdown-toggle text-dark" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" asp-action="Logout" asp-controller="Account">
+            Logout
+        </a>
+        <a class="nav-link dropdown-toggle text-dark" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" asp-action="ChangePassword" asp-controller="Account">
+            Change password
+        </a>
+        @*<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" asp-action="Logout" asp-controller="Account">Logout</a>
+                <a class="dropdown-item" asp-action="ChangePassword" asp-controller="Account">Change password</a>
+            </div>*@
+    </li>
+}
+else
+{
+    <li class="nav-item">
+        <a asp-controller="Account" asp-action="Login" asp-route-returnUrl="@Context.Request.Path" class="nav-link">Giriş Yap</a>
+    </li>
+    <li class="nav-item">
+        <a asp-controller="Account" asp-action="Signup" class="nav-link">Kayıt Ol</a>
+    </li>
+    <li class="nav-item">
+        <a class="btn btn-outline-primary" asp-controller="Account" asp-action="Login" asp-route-returnUrl="@Context.Request.Path">Login</a>
+        <a class="btn btn-primary" asp-controller="Account" asp-action="Signup">Register</a>
+    </li>
+}

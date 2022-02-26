@@ -1,10 +1,9 @@
-﻿@model LoginModel
+﻿@model CoreEticaret.Models.SignInModel
 
 @{
     ViewData["Title"] = "Login";
     Layout = "~/Views/Shared/_UserLayout.cshtml";
 }
-
 
 <!doctype html>
 <html lang="en">
@@ -42,35 +41,29 @@
                         {
                             <div class="text-danger">@ViewBag.ErrorMessage</div>
                         }
-                        <form asp-controller="Account" asp-action="Login" method="post">
-                            <div asp-validation-summary="All" class="text-danger"></div>
-                            <input type="hidden" name="ReturnURL" value="@Model.ReturnURL" />
-                            <div class="form-group first">
-                                <label for="username">Kullanıcı Adı</label>
-                                <input asp-for="Email" value="@Model.Email" class="form-control" id="username" />
+                        <form asp-action="Login">
+                            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                            <div class="form-group">
+                                <label asp-for="Email" class="control-label"></label>
+                                <input asp-for="Email" class="form-control" />
                                 <span asp-validation-for="Email" class="text-danger"></span>
                             </div>
-                            <div class="form-group last mb-3">
-                                <label for="password">Sifre</label>
-                                <input asp-for="Password" value="@Model.Password" class="form-control" id="password" />
+                            <div class="form-group">
+                                <label asp-for="Password" class="control-label"></label>
+                                <input asp-for="Password" class="form-control" />
                                 <span asp-validation-for="Password" class="text-danger"></span>
                             </div>
-
-                            <div class="d-flex mb-5 align-items-center">
-                                <label class="control control--checkbox mb-0">
-                                    <span class="caption">Beni Hatırla</span>
-                                    <input type="checkbox" checked="checked" />
-                                    <div class="control__indicator"></div>
+                            <div class="form-group form-check">
+                                <label class="form-check-label">
+                                    <input class="form-check-input" asp-for="RememberMe" />     @Html.DisplayNameFor(model => model.RememberMe)
                                 </label>
-                                <span class="ml-auto"><a href="/Account/ForgotPassword/" class="forgot-pass">Sifremi Unuttum</a></span>
                             </div>
-
-                            <input type="submit" value="Log In" class="btn btn-block btn-primary">
+                            <p><a asp-action="ForgotPassword" asp-controller="Account">Forgot password?</a></p>
+                            <input type="submit" value="Giris Yap" class="btn btn-block btn-primary">
                             <div class="w-100 text-center mt-4 text">
                                 <p class="mb-0">Bir hesabin yok mu?</p>
                                 <a href="/Account/Register/">Kayit Ol</a>
                             </div>
-
                             <span class="d-block text-center my-4 text-muted">&mdash; or &mdash;</span>
 
                             <div class="social-login">
@@ -90,12 +83,6 @@
             </div>
         </div>
     </div>
-
-    <script src="~/login-form-06/login-form-06/js/jquery-3.3.1.min.js"></script>
-    <script src="~/login-form-06/login-form-06/js/popper.min.js"></script>
-    <script src="~/login-form-06/login-form-06/js/bootstrap.min.js"></script>
-    <script src="~/login-form-06/login-form-06/js/main.js"></script>
-    <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
-    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
 </body>
 </html>
+                       

@@ -8,23 +8,27 @@ namespace CoreEticaret.Models
 {
     public class RegisterModel
     {
-        [Required]
-        public string FullName { get; set; }
+        [Required(ErrorMessage = "Please enter your first name")]
+        [Display(Name = "First name")]
+        public string FirstName { get; set; }
 
-        [Required]
-        public string UserName { get; set; }
+        [Display(Name = "Last name")]
+        public string LastName { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Please enter your email")]
+        [Display(Name = "Email address")]
+        [EmailAddress(ErrorMessage = "Please enter a valid email")]
+        public string Email { get; set; }
+
+        [Required(ErrorMessage = "Please enter a strong password")]
+        [Compare("ConfirmPassword", ErrorMessage = "Password does not match")]
+        [Display(Name = "Password")]
         [DataType(DataType.Password)]
         public string Password { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Please confirm your password")]
+        [Display(Name = "Confirm Password")]
         [DataType(DataType.Password)]
-        [Compare("Password")]
-        public string RePassword { get; set; }
-
-        [Required]
-        [DataType(DataType.EmailAddress)]
-        public string Email { get; set; }
+        public string ConfirmPassword { get; set; }
     }
 }

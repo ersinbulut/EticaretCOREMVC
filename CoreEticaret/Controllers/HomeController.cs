@@ -1,4 +1,5 @@
 ﻿using CoreEticaret.Models;
+using CoreEticaret.Services.Abstract;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System;
@@ -12,14 +13,23 @@ namespace CoreEticaret.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
+        private readonly IEmailService _emailService;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(ILogger<HomeController> logger, IEmailService emailService)
         {
             _logger = logger;
+            _emailService = emailService;
         }
 
-        public IActionResult Index()
+        public async Task<ViewResult> Index()
         {
+            UserEmailOptions options = new UserEmailOptions
+            {
+                ToEmails = new List<string>() { "test@gmail.com" }
+            };
+
+            //await _emailService.SendTestEmail(options);
+
             return View();
         }
 
