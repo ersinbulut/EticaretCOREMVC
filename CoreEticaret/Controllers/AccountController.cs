@@ -151,7 +151,7 @@ namespace CoreEticaret.Controllers
                         return LocalRedirect(returnUrl);
                     }
 
-                    return RedirectToAction("Index", "Home");
+                    return RedirectToAction("Index", "Product");
                 }
                 if (result.IsNotAllowed)
                 {
@@ -176,7 +176,7 @@ namespace CoreEticaret.Controllers
         {
             await _signInManager.SignOutAsync();
 
-            return RedirectToAction("Index", "Home");
+            return RedirectToAction("Index", "Product");
         }
 
         //[Route("change-password")]

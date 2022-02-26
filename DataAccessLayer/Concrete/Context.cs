@@ -12,7 +12,7 @@ namespace DataAccessLayer.Concrete
     {
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer("server=MSI;database=CoreETicaretDB;integrated security=true;");
+            optionsBuilder.UseSqlServer("server=BULUTS;database=CoreETicaretDB;integrated security=true;");
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)

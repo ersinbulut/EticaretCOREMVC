@@ -37,22 +37,22 @@
                             <partial name="_LoginInfo" />
                             @if (User.Identity.IsAuthenticated)
                             {
-                                <li class="nav-item">
+                                @*<li class="nav-item">
                                     <a asp-controller="Account" asp-action="Manage" class="nav-link">
                                         @User.Identity.Name
                                     </a>
                                 </li>
                                 <li class="nav-item">
                                     <a asp-controller="Account" asp-action="Logout" class="nav-link">Cıkış Yap</a>
-                                </li>
+                                </li>*@
 
-                                <ul class="header__right__widget">
+                              @*  <ul class="header__right__widget">
                                     <li><a asp-controller="Account" asp-action="Favorite"><span class="icon_heart_alt"></span>
                                     <div class="tip">2</div>
                                     </a></li>
-                                </ul>
+                                </ul>*@
                             }
-                            else
+                          @*  else
                             {
                                 <li class="nav-item">
                                     <a asp-controller="Account" asp-action="Login" class="nav-link">Giriş Yap</a>
@@ -68,7 +68,7 @@
                                 <div class="tip">2</div>
                             </a></li>
                         </ul>
-                            }
+                            }*@
                         </div>
                         <ul class="header__right__widget">
                             <li><span class="icon_search search-switch"></span></li>
