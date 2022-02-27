@@ -15,6 +15,12 @@ namespace CoreEticaret.Controllers
             return View(values);
         }
 
+        public PartialViewResult _CategoryList()
+        {
+            var values = pm.GetProductListWithCategory();
+            return PartialView(values);
+        }
+
         public IActionResult ProductReadAll(int id)
         {
             ViewBag.i = id;

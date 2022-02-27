@@ -1,4 +1,6 @@
-﻿<style>
+﻿@inject Microsoft.AspNetCore.Identity.SignInManager<ApplicationUser> _signInManager
+
+<style>
     .dropdown:hover > .dropdown-menu {
         display: block;
         padding-top: 10px;
@@ -13,34 +15,36 @@
     }
 
     }
+    li > a:hover{
+        background-color:red;
+    }
+     .user-header a:hover {background-color: #ddd;}
 </style>
-
-
-@inject Microsoft.AspNetCore.Identity.SignInManager<ApplicationUser> _signInManager
 
 @if (_signInManager.IsSignedIn(User))
 {
     <div id="mobile-menu-wrap"></div>
     <div class="offcanvas__auth">
-        @* <li class=""><a href="/AdminHome/Index" target="_blank">Admin Paneli</a></li>*@
+        <ul style="list-style-type:none;">
         <li class="dropdown user user-menu">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                 <span class="hidden-xs">Hesabım</span>
             </a>
             <ul class="dropdown-menu">
-                <li class="user-header" style="padding:5px; background-color:#3A3F44;">
-                    <p style="font-size:15px; color:dark;">
+                <li class="user-header" style="text-align:center; padding:5px; background-color:#3A3F44;">
+                    <p style="font-size:15px; color:white;">
                         @(User.FindFirst("UserFirstName").Value + " " + User.FindFirst("UserLastName").Value )
                     </p>
                 </li>
-                 <li class="user-header" style="padding:5px; background-color:orange;">
-                     <a href="/Admin/AdminCategory/Index/">Admin Paneli</a>
-                </li>
-                 <li class="user-header" style="padding:5px; background-color:red;">
-                     <a asp-controller="Account" asp-action="Logout">Cıkış Yap</a>
+                 <li class="user-header text-center"  >
+                     <a style="width: 190px;" target="_blank" class="btn btn-warning" href="/Admin/AdminCategory/Index/">Admin Paneli</a>
+               
+                 <li class="user-header text-center">
+                     <a style="width: 180px;"  class="btn btn-danger" asp-controller="Account" asp-action="Logout">Cıkış Yap</a>
                 </li>
             </ul>
         </li>
+        </ul>
     </div>
 }
 else
