@@ -9,6 +9,7 @@ namespace DataAccessLayer.Abstract
 {
     public interface ICategoryDal:IGenericDal<Category>
     {
-       
+        List<Category> GetListAllParentCategory();
+        List<Category> GetListAllSubCategory(int? parentId = null);
     }
 }

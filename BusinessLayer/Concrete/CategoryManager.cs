@@ -63,5 +63,17 @@ namespace BusinessLayer.Concrete
 		{
             _categoryDal.Update(t);
         }
-	}
+
+
+        public object GetParentCategoryList()
+        {
+            return _categoryDal.GetListAllParentCategory();
+        }
+
+        public object GetChildCategoryList(int paretId)
+        {
+            return _categoryDal.GetListAllSubCategory(paretId);
+        }
+
+    }
 }
