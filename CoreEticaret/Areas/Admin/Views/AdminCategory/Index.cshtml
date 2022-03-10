@@ -18,7 +18,7 @@
         <div class="card-header">
            
              <div class="card-tools">
-            <a class="btn btn-primary" href="#">Yeni Kategori Ekle</a>
+            <a class="btn btn-primary" href="/Admin/AdminCategory/AddCategory/">Yeni Kategori Ekle</a>
                       
           </div>
 
@@ -65,7 +65,12 @@
                             </td>
 
                             <td class="project_progress">
-                                @item.ParentCategoryID
+                                @if (item.ParentCategory == null)
+                                {
+                                      <span class="badge badge-success">Ana Kategori</span>
+                                }else{
+                                     <span class="badge badge-success">Alt Kategori</span>
+                                }
                             </td>
                             @if (item.Status == true)
                             {
@@ -80,15 +85,15 @@
                                 </td>
                             }
                             <td class="project-actions text-right">
-                                <a class="btn btn-info btn-sm" href="#">
+                                <a class="btn btn-info btn-sm" href="/Admin/AdminCategory/EditCategory/@item.Id/">
                                     <i class="fas fa-pencil-alt">
                                     </i>
-                                    Edit
+                                    Düzenle
                                 </a>
-                                <a class="btn btn-danger btn-sm" href="#">
+                                <a class="btn btn-danger btn-sm" href="/Admin/AdminCategory/DeleteCategory/@item.Id/">
                                     <i class="fas fa-trash">
                                     </i>
-                                    Delete
+                                    Sil
                                 </a>
                             </td>
                         </tr>

@@ -1,0 +1,37 @@
+﻿@model EntityLayer.Concrete.Category
+
+@{
+    ViewData["Title"] = "AddCategory";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminPanelLayout.cshtml";
+}
+
+<h1>Kategori Ekle</h1>
+<hr />
+<div class="row">
+    <div class="col-md-10">
+        @using (Html.BeginForm("AddCategory", "AdminCategory", "Admin", FormMethod.Post))
+        {
+            <div class="form-row">
+                <div class="col-md-6 mb-3">
+                    <label for="validationCustom01">Kategori Adı</label>
+                    @Html.TextBoxFor(x=>x.Name,new {@class="form-control"})
+                    @Html.ValidationMessageFor(x=>x.Name,"", new { @class = "text-danger" })
+                    @*  <input type="text" class="form-control" id="validationDefault01" name="WriterName" placeholder="" required="">*@
+                </div>
+                <div class="col-md-6 mb-3">
+                    <label for="validationCustom02">Açıklama</label>
+                    @Html.TextBoxFor(x=>x.Description,new {@class="form-control"})
+                    @Html.ValidationMessageFor(x=>x.Description,"", new { @class = "text-danger" })
+                    @* <input type="email" class="form-control" id="validationDefault02" name="WriterMail" placeholder="" required="">*@
+                </div>
+            </div>
+            <button type="submit" class="btn btn-primary submit mb-4">Kategori Ekle</button>
+        }
+    </div>
+</div>
+
+<div>
+    <a href="/Admin/AdminCategory/Index/">Kategori Listesine Dön</a>
+</div>
+
+

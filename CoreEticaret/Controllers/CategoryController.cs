@@ -8,7 +8,7 @@ using System.Linq;
 
 namespace CoreEticaret.Controllers
 {
-    public class Category : Controller
+    public class CategoryController : Controller
     {
         CategoryManager cm = new CategoryManager(new EFCategoryRepository());
         

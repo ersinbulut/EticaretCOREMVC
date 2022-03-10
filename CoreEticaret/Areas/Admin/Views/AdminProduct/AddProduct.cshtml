@@ -1,0 +1,99 @@
+﻿@model EntityLayer.Concrete.Product
+
+@{
+    ViewData["Title"] = "AddProduct";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminPanelLayout.cshtml";
+}
+
+<h1>Ürün Ekle</h1>
+
+<hr />
+
+
+
+
+<div class="row">
+    <div class="col-md-12">
+        @using (Html.BeginForm("AddProduct", "AdminProduct", "Admin", FormMethod.Post))
+        {
+            <div class="form-row">
+                <div class="col-md-6 mb-3">
+                    <label for="validationCustom01">Ürün Adı</label>
+                    @Html.TextBoxFor(x=>x.Name,new {@class="form-control"})
+                    @Html.ValidationMessageFor(x=>x.Name,"", new { @class = "text-danger" })
+                    @*  <input type="text" class="form-control" id="validationDefault01" name="WriterName" placeholder="" required="">*@
+                </div>
+                <div class="col-md-6 mb-3">
+                    <label for="validationCustom02">Açıklama</label>
+                    @Html.TextBoxFor(x=>x.Description,new {@class="form-control"})
+                    @Html.ValidationMessageFor(x=>x.Description,"", new { @class = "text-danger" })
+                    @* <input type="email" class="form-control" id="validationDefault02" name="WriterMail" placeholder="" required="">*@
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="col-md-6 mb-3">
+                    <label for="validationCustom01">Ürün Fiyatı</label>
+                    @Html.TextBoxFor(x=>x.Price,new {@class="form-control"})
+                    @Html.ValidationMessageFor(x=>x.Price,"", new { @class = "text-danger" })
+                    @*  <input type="text" class="form-control" id="validationDefault01" name="WriterName" placeholder="" required="">*@
+                </div>
+                <div class="col-md-6 mb-3">
+                    <label for="validationCustom02">Stok Miktarı</label>
+                    @Html.TextBoxFor(x=>x.Stock,new {@class="form-control"})
+                    @Html.ValidationMessageFor(x=>x.Stock,"", new { @class = "text-danger" })
+                    @* <input type="email" class="form-control" id="validationDefault02" name="WriterMail" placeholder="" required="">*@
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="col-md-6 mb-3">
+                    <label for="validationCustom01">Ana Resim</label>
+                    @Html.TextBoxFor(x=>x.Image,new {@class="form-control"})
+                    @Html.ValidationMessageFor(x=>x.Image,"", new { @class = "text-danger" })
+                    @*  <input type="text" class="form-control" id="validationDefault01" name="WriterName" placeholder="" required="">*@
+                </div>
+                <div class="col-md-6 mb-3">
+                    <label for="validationCustom02">Resim 1</label>
+                    @Html.TextBoxFor(x=>x.Image1,new {@class="form-control"})
+                    @Html.ValidationMessageFor(x=>x.Image1,"", new { @class = "text-danger" })
+                    @* <input type="email" class="form-control" id="validationDefault02" name="WriterMail" placeholder="" required="">*@
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="col-md-6 mb-3">
+                    <label for="validationCustom01">Resim 2</label>
+                    @Html.TextBoxFor(x=>x.Image2,new {@class="form-control"})
+                    @Html.ValidationMessageFor(x=>x.Image2,"", new { @class = "text-danger" })
+                    @*  <input type="text" class="form-control" id="validationDefault01" name="WriterName" placeholder="" required="">*@
+                </div>
+                <div class="col-md-6 mb-3">
+                    <label for="validationCustom02">Resim 3</label>
+                    @Html.TextBoxFor(x=>x.Image3,new {@class="form-control"})
+                    @Html.ValidationMessageFor(x=>x.Image3,"", new { @class = "text-danger" })
+                    @* <input type="email" class="form-control" id="validationDefault02" name="WriterMail" placeholder="" required="">*@
+                </div>
+            </div>
+              <div class="form-row">
+                <div class="col-md-6 mb-3">
+                    <label for="validationCustom01">Kategori</label>
+                    @Html.TextBoxFor(x=>x.CategoryId,new {@class="form-control"})
+                    @Html.ValidationMessageFor(x=>x.CategoryId,"", new { @class = "text-danger" })
+                    @*  <input type="text" class="form-control" id="validationDefault01" name="WriterName" placeholder="" required="">*@
+                </div>
+                <div class="col-md-6 mb-3">
+                    <label for="validationCustom02">Alt Kategori</label>
+                    @* @Html.DropDownList("ParentId", null, htmlAttributes: new { @class = "form-control"  })*@
+                    @Html.TextBoxFor(x=>x.ParentId,new {@class="form-control"})
+                    @Html.ValidationMessageFor(x=>x.ParentId,"", new { @class = "text-danger" })
+                    @* <input type="email" class="form-control" id="validationDefault02" name="WriterMail" placeholder="" required="">*@
+                </div>
+            </div>
+            <button type="submit" class="btn btn-primary submit mb-4">Ürün Ekle</button>
+        }
+    </div>
+</div>
+
+<div>
+    <a href="/Admin/AdminProduct/Index/">Ürün Listesine Dön</a>
+</div>
+
+
