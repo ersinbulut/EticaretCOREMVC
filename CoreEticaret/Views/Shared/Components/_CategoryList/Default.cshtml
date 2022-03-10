@@ -18,7 +18,7 @@
                         @if (Model.Where(x => x.ParentCategoryID == item.Id).ToList().Count > 0)
                         {
                             var targetName = "#collapse" + count;
-                             string categoryUrl = $"/Product/ProductList?categoryId={item.ParentCategoryID}&subCategoryId={item.Id}";
+                             string categoryUrl = $"/Product/ProductList?categoryId={item.Id}&subCategoryId={item.ParentCategoryID}";
                             <div class="card">
                                 <div class="card-heading">
                                     <a href="@categoryUrl" data-toggle="collapse" data-target="@targetName">@item.Name</a>
@@ -98,7 +98,7 @@
                         }
                         else
                         {
-                             string categoryUrl = $"/Product/ProductList?categoryId={item.ParentCategoryID}&subCategoryId={item.Id}";
+                            string categoryUrl = $"/Product/ProductList?categoryId={item.Id}&subCategoryId={item.ParentCategoryID}";
                             <div class="card-heading">
                                 <a href="@categoryUrl">@item.Name</a>
                             </div>

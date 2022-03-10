@@ -39,11 +39,15 @@ namespace CoreEticaret.Controllers
             var query = db.Products.AsQueryable();
 
             if (categoryId > 0)
-                query = query.Where(i => i.CategoryId == subCategoryId);
-            else
-                query = query.Where(i => i.Category.ParentCategoryID == subCategoryId || i.CategoryId == subCategoryId);
+                query = query.Where(i => i.CategoryId == categoryId);
+            else if(subCategoryId>0)
+                query = query.Where(i => i.ParentId == subCategoryId);
 
             return View(query.ToList());
+        }
+        public ActionResult ShopCart()
+        {
+            return View();
         }
     }
 }
