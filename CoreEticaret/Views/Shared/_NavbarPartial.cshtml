@@ -1,89 +1,103 @@
-﻿
-@{
+﻿@{
     Layout = null;
 }
 
- <header class="header">
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-xl-3 col-lg-2">
-                    <div class="header__logo">
-                        <a href="./index.html">E-TİCARET CORE MVC</a>
-                    </div>
+<header class="header">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xl-3 col-lg-2">
+                <div class="header__logo">
+                    <a href="./index.html">E-TİCARET CORE MVC</a>
                 </div>
-                <div class="col-xl-6 col-lg-7">
-                    <nav class="header__menu">
-                        <ul>
-                            <li class="active"><a href="/Product/Index/">Ana Sayfa</a></li>
-                            <li><a href="#">Kadın</a></li>
-                            <li><a href="#">Erkek</a></li>
-                            <li><a href="/Product/Shop/">Alışveriş</a></li>
-                            <li><a href="#">Sayfalar</a>
-                                <ul class="dropdown">
-                                    <li><a href="./product-details.html">Ürün Detayları</a></li>
-                                    <li><a href="/Product/ShopCart/">Alışveriş Sepeti</a></li>
-                                    <li><a href="./checkout.html">Ödeme</a></li>
-                                    <li><a href="./blog-details.html">Blog Detayları</a></li>
-                                </ul>
-                            </li>
-                            <li><a href="./blog.html">Blog</a></li>
-                            <li><a href="./contact.html">İletİşİm</a></li>
-                        </ul>
-                    </nav>
-                </div>
-                <div class="col-lg-3">
-                    <div class="header__right">
-                        <div class="header__right__auth">
-                            <partial name="_LoginInfo" />
-                            @if (User.Identity.IsAuthenticated)
-                            {
-                                @*<li class="nav-item">
-                                    <a asp-controller="Account" asp-action="Manage" class="nav-link">
-                                        @User.Identity.Name
-                                    </a>
+            </div>
+            <div class="col-xl-6 col-lg-7">
+                <nav class="header__menu">
+                    <ul>
+                        <li class="active"><a href="/Product/Index/">Ana Sayfa</a></li>
+                        <li><a href="#">Kadın</a></li>
+                        <li><a href="#">Erkek</a></li>
+                        <li><a href="/Product/Shop/">Alışveriş</a></li>
+                        <li>
+                            <a href="#">Sayfalar</a>
+                            <ul class="dropdown">
+                                <li><a href="./product-details.html">Ürün Detayları</a></li>
+                                <li><a href="/Product/ShopCart/">Alışveriş Sepeti</a></li>
+                                <li><a href="./checkout.html">Ödeme</a></li>
+                                <li><a href="./blog-details.html">Blog Detayları</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="./blog.html">Blog</a></li>
+                        <li><a href="./contact.html">İletİşİm</a></li>
+                    </ul>
+                </nav>
+            </div>
+            <div class="col-lg-3">
+                <div class="header__right">
+                    <div class="header__right__auth">
+                        <partial name="_LoginInfo" />
+                        @if (User.Identity.IsAuthenticated)
+                        {
+                            @*<li class="nav-item">
+                                <a asp-controller="Account" asp-action="Manage" class="nav-link">
+                                @User.Identity.Name
+                                </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a asp-controller="Account" asp-action="Logout" class="nav-link">Cıkış Yap</a>
+                                <a asp-controller="Account" asp-action="Logout" class="nav-link">Cıkış Yap</a>
                                 </li>*@
 
-                              @*  <ul class="header__right__widget">
-                                    <li><a asp-controller="Account" asp-action="Favorite"><span class="icon_heart_alt"></span>
-                                    <div class="tip">2</div>
-                                    </a></li>
+                            @*  <ul class="header__right__widget">
+                                <li><a asp-controller="Account" asp-action="Favorite"><span class="icon_heart_alt"></span>
+                                <div class="tip">2</div>
+                                </a></li>
                                 </ul>*@
-                            }
-                          @*  else
+                        }
+                        @*  else
                             {
-                                <li class="nav-item">
-                                    <a asp-controller="Account" asp-action="Login" class="nav-link">Giriş Yap</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a asp-controller="Account" asp-action="Register" class="nav-link">Kayıt Ol</a>
-                                </li>
-                                <ul class="header__right__widget">
-                                    <li><a asp-controller="Account" asp-action="Login"><span class="icon_heart_alt"></span>
-                                    <div class="tip">2</div>
-                                    </a></li>
+                            <li class="nav-item">
+                            <a asp-controller="Account" asp-action="Login" class="nav-link">Giriş Yap</a>
+                            </li>
+                            <li class="nav-item">
+                            <a asp-controller="Account" asp-action="Register" class="nav-link">Kayıt Ol</a>
+                            </li>
+                            <ul class="header__right__widget">
+                            <li><a asp-controller="Account" asp-action="Login"><span class="icon_heart_alt"></span>
+                            <div class="tip">2</div>
+                            </a></li>
                             <li><a href="#"><span class="icon_bag_alt"></span>
-                                <div class="tip">2</div>
+                            <div class="tip">2</div>
                             </a></li>
-                        </ul>
+                            </ul>
                             }*@
-                        </div>
-                        <ul class="header__right__widget">
-                            <li><span class="icon_search search-switch"></span></li>
-                            <li><a href="#"><span class="icon_heart_alt"></span>
-                                <div class="tip">2</div>
-                            </a></li>
-                            <li><a href="/Product/ShopCart/"><span class="icon_bag_alt"></span>
-                                <div class="tip">1</div>
-                            </a></li>
-                        </ul>
                     </div>
+
+                    @*@Html.PartialAsync("Summary","Cart")*@
+                    <ul class="header__right__widget">
+                        <li><span class="icon_search search-switch"></span></li>
+                        <li>
+
+                            <a href="#">
+
+                                <span class="icon_heart_alt"></span>
+                                <div class="tip">2</div>
+                            </a>
+
+                        </li>
+                        <li>
+                            @*  /Cart/Index *@
+                            <a href="/Product/ShopCart/">
+
+                                <span class="icon_bag_alt"></span>
+                                <div class="tip">1</div>
+                            </a>
+
+                        </li>
+                    </ul>
                 </div>
             </div>
-            <div class="canvas__open">
-                <i class="fa fa-bars"></i>
-            </div>
         </div>
-    </header>
+        <div class="canvas__open">
+            <i class="fa fa-bars"></i>
+        </div>
+    </div>
+</header>

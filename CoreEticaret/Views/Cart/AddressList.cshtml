@@ -1,0 +1,96 @@
+﻿@model IEnumerable<EntityLayer.Concrete.Address>
+@{
+    ViewData["Title"] = "AddressList";
+    Layout = "~/Views/Shared/_UserLayout.cshtml";
+}
+
+
+<div id="mainBody">
+    <div class="container">
+        <div class="row">
+            <div class="span12">
+
+
+                <h2>Adres Seçimi</h2>
+
+                <p>
+                    <img src="~/Content/Images/home.png" width="25" height="25" />@Html.ActionLink("Yeni Adres Ekle", "CreateUserAddress")
+                </p>
+                <table class="table table-hover">
+                    <tr>
+                        <th></th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.AdresBasligi)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Adres)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Il)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Ilce)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Mahalle)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.PostaKodu)
+                        </th>
+                        <th></th>
+                    </tr>
+
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>
+                                <img src="~/Content/Images/home.png" width="25" height="25" />
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.AdresBasligi)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Adres)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Il)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Ilce)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Mahalle)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.PostaKodu)
+                            </td>
+                            <td>
+                                @*@using (Html.BeginForm("CreateOrder", "Cart"))
+                                    {
+                                        @Html.HiddenFor(modelItem => item.Id)
+                                        <button type="submit" class="btn btn-large btn-primary pull-right">Varsayılan Adres Seç<i class=" icon-shopping-cart"></i></button>
+                                    }*@
+                                @*@Html.ActionLink("Sil", "DeleteUserAddress", new { id = item.Id }, new { @class = "btn btn-medium btn-danger " }) |*@
+                                @*@Html.ActionLink("Varsayılan Adres Seç", "CreateOrder", new { id = item.Id }, new { @class = "btn btn-medium btn-primary" })*@
+                                <a href="/Cart/DeleteUserAddress/@item.Id" class="btn btn-danger">Sil</a>
+
+                                <a href="/Cart/PayList/@item.Id" class="btn btn-success">Adres Seç <i class="icon-arrow-right"></i></a>
+
+
+                                @*<a href="/Cart/CreateOrder/@item.Id" class="btn btn-success">Alışverişi Tamamla <i class="icon-arrow-right"></i></a>*@
+
+                            </td>
+                        </tr>
+                    }
+
+                </table>
+
+
+
+            </div>
+
+
+        </div>
+    </div>
+</div>
+

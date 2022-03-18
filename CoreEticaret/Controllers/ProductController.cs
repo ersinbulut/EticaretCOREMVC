@@ -1,7 +1,9 @@
 ﻿using BusinessLayer.Concrete;
 using DataAccessLayer.Concrete;
 using DataAccessLayer.EntityFramework;
+using EntityLayer.Concrete;
 using Microsoft.AspNetCore.Mvc;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace CoreEticaret.Controllers
@@ -47,7 +49,7 @@ namespace CoreEticaret.Controllers
         }
         public ActionResult ShopCart()
         {
-            return View();
+            return View(db.Summaries.ToList());
         }
     }
 }

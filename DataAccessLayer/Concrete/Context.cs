@@ -44,6 +44,7 @@ namespace DataAccessLayer.Concrete
         //public DbSet<MessageReplies> MessageReplies { get; set; }
 
         public DbSet<Writer> Writers { get; set; }
+        public DbSet<Summary> Summaries { get; set; }
         //public DbSet<Listing> Listings { get; set; }
         //public DbSet<SubCategory1> SubCategories1 { get; set; }
         //public DbSet<SubCategory2> SubCategories2 { get; set; }
